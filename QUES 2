@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+main()
+{
+    string word;
+    char sent[100];
+    char k;
+    int c=1,i=0,l,v=0,uc=0,lc=0,d=0,ch=0,j,m;
+    cout<<"ENTER THE STRING YOU WANT TO ENETR";
+    getline(cin,word);
+    l=word.length();
+    for(i=0,j=0;i<l;i++,j++)
+        sent[j]=word[i];
+    i=0;
+    while(word[i]!='\0')
+    {
+        k=word[i];
+        if(word[i]=='a' || word[i]=='e'|| word[i]=='i' || word[i]=='o' || word[i]=='u')
+        v++;
+        if (word[i]>=65 && word[i]<=90)
+        uc++;
+        if(word[i]>=97 && word[i]<=122)
+        lc++;
+        if(word[i]>=48 && word[i]<=57)
+        d++;
+        ch++;
+        i++;
+    }
+    i=0;
+    while(sent[i]!='\0')
+    {
+        k=sent[i];
+        for(j=i+1;j<l;j++)
+        {
+            if(k==sent[j])
+            {
+                c++;
+            for(m=j;m<l;m++)
+                {
+                    sent[m]=sent[m+1];
+                }
+            l--;
+            }}
+        cout<<" \nTHE LETTER "<<k<<" HAS BEEN ENCOUNTERED "<<c<<" TIMES\n ";
+        c=1;
+        i++;
+    }
+        cout<<"\nNUMBER OF VOWELS ARE\n"<<v;
+          cout<<"\nNUMBER OF UPPER CASE CHARACTERS  ARE\n"<<uc;
+           cout<<"\nNUMBER OF LOWER CASE CHARACTERS ARE\n"<<lc;
+            cout<<"\nNUMBER OF DIGITS ARE\n"<<d;
+             cout<<"\nNUMBER OF CHARACTERS ARE\n"<<ch;
+
+    }
+
