@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+main()
+{
+int num,s=0,p=0,x,temp,sop;
+cout<<"\nENTER THE NUMBER YOU WANT TO CHECK FOR BEING SPECIAL\n";
+cin>>num;
+temp=num%10;
+x=num/10;
+cout<<"\nTHE SUM OF THE DIGITS IS\n"<<temp+x;
+cout<<"\nTHE PRODUCTS OF THE DIGITS IS\n"<<temp*x;
+cout<<"\nSUM OF THE SUM OF DIGITS AND THE PRODUCT OF DIGITS IS\n"<<((temp+x)+(temp*x));
+sop=(temp+x)+(temp*x);
+cout<<"\n\nRESULT!!!\n\n";
+if(sop==num)
+{
+    cout<<"\nSPECIAL 2-DIGIT NUMBER\n";
+}
+else
+{
+    cout<<"\nNOT A SPECIAL 2-DIGIT NUMBER\n";
+}}
