@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+main()
+{
+    char ch;
+    int purchase_amount,age;
+    float discount=0.0,netsale=0.0;
+    cout<<"WHAT IS YOUR PRODUCT TYPE\n";
+    cin>>ch;
+    switch(ch)
+    {
+        case 'F':
+            cout<<"ENTER YOUR PURCHASE AMOUNT";
+            cin>>purchase_amount;
+            if (purchase_amount>=5000)
+                discount=(0.5)*purchase_amount;
+            else if (purchase_amount>=2000)
+                discount=(0.2)*purchase_amount;
+            else if (purchase_amount>=500)
+                discount=(0.1)*purchase_amount;
+            else if (purchase_amount<500)
+                discount=0;
+            break;
+        case 'C':
+            cout<<"ENTER YOUR AGE";
+            cin>>age;
+            cout<<"ENTER YOUR PURCHASE AMOUNT";
+            cin>>purchase_amount;
+            if (age>=40)
+            {
+                 if (purchase_amount>=5000)
+                discount=(0.5)*purchase_amount;
+            else if (purchase_amount>=2000)
+                discount=(0.2)*purchase_amount;
+            else if (purchase_amount>=500)
+                discount=(0.1)*purchase_amount;
+            else if (purchase_amount<500)
+                discount=0;
+           }
+           else if(age>=20)
+           {
+                if (purchase_amount>=5000)
+                discount=(0.6)*purchase_amount;
+            else if (purchase_amount>=2000)
+                discount=(0.3)*purchase_amount;
+            else if (purchase_amount>=500)
+                discount=(0.15)*purchase_amount;
+            else if (purchase_amount<500)
+                discount=0; }
+            else if(age<20)
+            {
+                 if (purchase_amount>=2500)
+                discount=(0.5)*purchase_amount;
+            else if (purchase_amount<2500)
+                discount=0;
+            }
+            break;
+
+        }
+        netsale=purchase_amount-discount;
+        if (ch=='F')
+        {
+            cout<<"\nPRODUCT TYPE: FOOD TYPE ITEM\n";
+            cout<<"\nPURCHASE AMOUNT\n"<<purchase_amount;
+            cout<<"\nDISCOUNT:\n"<< discount;
+            cout<<"\nNET PAYMENT:\n"<<netsale;}
+        else if (ch=='C')
+           {cout<<"\nPRODUCT TYPE: CLOTH TYPE ITEM\n";
+            cout<<"\nPURCHASE AMOUNT\n"<<purchase_amount;
+            cout<<"\nDISCOUNT:\n"<<discount;
+            cout<<"\nNET PAYMENT:\n"<<netsale;}
+        }
