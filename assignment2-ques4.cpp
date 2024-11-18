@@ -1,61 +1,51 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 class Publication {
 public:
     string title;
-
     Publication() {
-        cout << "Enter Title: ";
+        cout << "Enter title: ";
         getline(cin, title);
     }
 
-    virtual void showInfo() const {
+    virtual void showInfo() {
         cout << "Title: " << title << endl;
     }
 };
 
 class Book : public Publication {
-protected:
-    int accession_number;
-
 public:
-    Book(int a = 0) : accession_number(a) {}
-
-    void showInfo() const override {
+    int accession_number;
+    
+    void showInfo(int a) override {
         Publication::showInfo();
+        accession_number = a;
         cout << "Accession Number: " << accession_number << endl;
     }
 };
 
 class Magazine : public Publication {
-protected:
-    int volume_number;
-
 public:
-    Magazine(int v = 0) : volume_number(v) {}
-
-    void showInfo() const override {
+    int volume_number;
+    
+    void showInfo(int v) override {
         Publication::showInfo();
+        volume_number = v;
         cout << "Volume Number: " << volume_number << endl;
     }
 };
 
 class Journal : public Book, public Magazine {
 public:
-    Journal(string t, int a = 0, int v = 0) : Publication(), Book(a), Magazine(v) {
-        title = t;
-    }
-
-    void showInfo() const override {
-        Book::showInfo();
-        Magazine::showInfo();
+    void showInfo(int a, int v) {
+        Book::showInfo(a);
+        Magazine::showInfo(v);
     }
 };
 
 int main() {
-    Journal ob1("Science Journal", 600, 50);
-    ob1.showInfo();
+    Journal ob1;
+    ob1.showInfo(600, 50);
     return 0;
 }
